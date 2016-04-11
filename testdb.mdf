@@ -7,18 +7,81 @@ CREATE TABLE users (
   updated_at DATETIME
 );
 
-
-
+-- 0.)
 INSERT INTO users
 (first_name, last_name, email, created_at, updated_at)
 VALUES
 ('Caesar', 'Gibson', 'cgibson@latinschool.org', DATETIME('now'), DATETIME('now'));
 
+INSERT INTO users
+(first_name, last_name, email, created_at, updated_at)
+VALUES
+('Richard', 'One', 'richard_one@latinschool.org', DATETIME('now'), DATETIME('now'));
 
+INSERT INTO users
+(first_name, last_name, email, created_at, updated_at)
+VALUES
+('Richard', 'Two', 'Richard_two@latinschool.org', DATETIME('now'), DATETIME('now'));
 
+INSERT INTO users
+(first_name, last_name, email, created_at, updated_at)
+VALUES
+('Richard', 'Three', 'Richard_three@latinschool.org', DATETIME('now'), DATETIME('now'));
+
+INSERT INTO users
+(first_name, last_name, email, created_at, updated_at)
+VALUES
+('Richard', 'Four', 'Richard_four@latinschool.org', DATETIME('now'), DATETIME('now'));
+
+CREATE TABLE posts (
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
+  title VARCHAR(64),
+  author  VARCHAR(64),
+  content VARCHAR(255) UNIQUE,
+  created_at DATETIME,
+  updated_at DATETIME
+);
+
+INSERT INTO posts
+(title, author, content, created_at, updated_at)
+VALUES
+('To be or not to be', 'Richard', 'This question has plagued man for centuries!', DATETIME('now'), DATETIME('now'));
+
+INSERT INTO posts
+(title, author, content, created_at, updated_at)
+VALUES
+('I hate bigots', 'Richard', 'Even though this is ironic, it is very true', DATETIME('now'), DATETIME('now'));
+
+INSERT INTO posts
+(title, author, content, created_at, updated_at)
+VALUES
+('Shrimp tacos', 'Richard', 'Honestly, shrimp tacos are gross af', DATETIME('now'), DATETIME('now'));
+
+INSERT INTO posts
+(title, author, content, created_at, updated_at)
+VALUES
+('Bored', 'Richard', 'Anyone wanna chat?', DATETIME('now'), DATETIME('now'));
+
+INSERT INTO posts
+(title, author, content, created_at, updated_at)
+VALUES
+('I like doritos', 'Richard', 'Title explains it all; doritos > shrimp tacos.', DATETIME('now'), DATETIME('now'));
+
+-- 1a.)
+SELECT * FROM posts;
 SELECT * FROM users;
+-- 1b.)
+SELECT * FROM users WHERE first_name='caesar';
+-- 1c.)
+SELECT title FROM posts;
+-- 1d.)
+SELECT title,content FROM posts;
 
+--2.)
+UPDATE users SET last_name='Castaneda', email='ccastaneda@latinschool.org' WHERE  first_name='Caesar';
 
+-- BONUS
+ALTER TABLE users ADD birthdate DATETIME;
 
 -- TO DO:
 -- Use this site as a resource: http://zetcode.com/db/sqlite/datamanipulation/
@@ -37,9 +100,7 @@ SELECT * FROM users;
 			-- change Caesar's last name to be Castaneda and the email to ccastaneda@latinschool.org
 
 
--- BONUS: 
+-- BONUS:
 	--ADD A COLUMN
-		-- After the table has already been created, see if you can update that table with a new column. 
-			--Add a birthdate column to the user table. 
-
-
+		-- After the table has already been created, see if you can update that table with a new column.
+			--Add a birthdate column to the user table.
